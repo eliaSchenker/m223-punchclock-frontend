@@ -1,0 +1,11 @@
+<div *ngIf="user != undefined" id="overviewDiv">
+  <h1>Welcome, {{user.username}}!</h1>
+  <div>
+    <button mat-raised-button color="primary" (click)="navigateEntries()">Manage entries</button>
+  </div><br>
+  <div *ngIf="user.role == 'Admin'">
+    <button mat-raised-button color="primary" (click)="navigateCategories()">Manage categories</button>
+    <button mat-raised-button color="primary" (click)="navigateLocations()">Manage locations</button>
+    <button mat-raised-button color="primary" (click)="navigateUsers()">Manage users</button>
+  </div>
+</div>
