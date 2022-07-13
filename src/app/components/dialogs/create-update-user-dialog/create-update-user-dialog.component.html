@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>
+    {{action}} User
+</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Enter username..." value="" [(ngModel)]="user.username">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Enter password..." type="password" value="" [(ngModel)]="user.password">
+  </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="user.role">
+      <mat-option value="User">User</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onDismiss()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onConfirm()">{{action}}</button>
+</div>
