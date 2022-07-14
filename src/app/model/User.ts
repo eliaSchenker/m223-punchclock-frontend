@@ -5,5 +5,5 @@ export interface User {
   username: string;
   password?: string;
   role: string;
-  location?: Location;
+  location: Location;
 }
