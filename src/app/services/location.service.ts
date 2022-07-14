@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_URL, httpOptions } from '../api_config';
 import { Category } from '../model/Category';
+import { Location } from '../model/Location';
 
 @Injectable({
   providedIn: 'root'
