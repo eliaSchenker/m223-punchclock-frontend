@@ -24,6 +24,6 @@ export class EntryService {
   }
 
   deleteEntry(id: number): Observable<Object> {
-    return this.http.delete(API_URL + "entries" + id, httpOptions);
+    return this.http.delete(API_URL + "entries/" + id, httpOptions);
   }
 }
