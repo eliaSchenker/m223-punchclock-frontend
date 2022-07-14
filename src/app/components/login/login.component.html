@@ -7,7 +7,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput name="password" formControlName="password" type="password">
-    </mat-form-field><br>
+    </mat-form-field>
+    <mat-label color="warn" id="error">{{loginError }}</mat-label><br><br>
     <button mat-raised-button color="primary" (click)="login()">Submit</button>
   </form>
 </mat-card>
