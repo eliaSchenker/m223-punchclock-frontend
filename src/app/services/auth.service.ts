@@ -18,15 +18,11 @@ export class AuthService {
 
     }
 
-    login(username:string, password:string) {
-        return this.http.post<string>(API_URL + 'auth/login', {username, password}).subscribe((res) => {
-          this.setToken(res);
-        }, error => {
-
-        })
+    login(username:string, password:string): Observable<string> {
+        return this.http.post(API_URL + 'auth/login', {username, password}, {responseType: 'text'});
     }
 
-    private setToken(token: string): void {
+    public setToken(token: string): void {
         localStorage.setItem('token', token);
     }
 
