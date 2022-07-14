@@ -2,6 +2,7 @@
   <h1>Welcome, {{user.username}}!</h1>
   <div>
     <button mat-raised-button color="primary" (click)="navigateEntries()">Manage entries</button>
+    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
   </div><br>
   <div *ngIf="user.role == 'Admin'">
     <button mat-raised-button color="primary" (click)="navigateCategories()">Manage categories</button>

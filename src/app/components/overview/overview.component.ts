@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/User';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-overview',
@@ -11,11 +13,14 @@ export class OverviewComponent implements OnInit {
 
   user?:User;
 
-  constructor(private router: Router) {
-    this.user = {role: "Admin", username:"Test", id:1}
+  constructor(private userService: UserService, private router: Router, private authService: AuthService) {
+    this.user = {role: "", username:"", id: 1}
   }
 
   ngOnInit(): void {
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.user = user;
+    });
   }
 
   navigateEntries() {
@@ -32,5 +37,10 @@ export class OverviewComponent implements OnInit {
 
   navigateUsers() {
     this.router.navigateByUrl("/admin/users");
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl("/login");
   }
 }
