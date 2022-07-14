@@ -1,1 +1,50 @@
-<p>entry works!</p>
+<button mat-raised-button color="primary" (click)="back()"><mat-icon>keyboard_arrow_left</mat-icon>Back</button>
+<button mat-raised-button color="primary" (click)="addEntry()">Add</button>
+<!-- Simple table. Source: https://material.angular.io/components/table/overview-->
+<table mat-table [dataSource]="entries" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- CheckIn Column -->
+  <ng-container matColumnDef="checkIn">
+    <th mat-header-cell *matHeaderCellDef> CheckIn </th>
+    <td mat-cell *matCellDef="let element"> {{element.checkIn}} </td>
+  </ng-container>
+
+  <!-- CheckOut Column -->
+  <ng-container matColumnDef="checkOut">
+    <th mat-header-cell *matHeaderCellDef> CheckOut </th>
+    <td mat-cell *matCellDef="let element"> {{element.checkOut}} </td>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+  </ng-container>
+
+   <!-- Update Column -->
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" (click)="updateEntry(element)">Update</button>
+    </td>
+  </ng-container>
+
+   <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="warn" (click)="deleteEntry(element.id)">Delete</button>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
