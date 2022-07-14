@@ -14,4 +14,20 @@ export class UserService {
   getCurrentUser(): Observable<User> {
     return this.http.get<User>(API_URL + "users/currentuser", httpOptions);
   }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + "users", httpOptions);
+  }
+
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(API_URL + "auth/register", user, httpOptions);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(API_URL + "users", user, httpOptions);
+  }
+
+  deleteUser(id: number): Observable<User> {
+    return this.http.delete<User>(API_URL + "users/" + id, httpOptions);
+  }
 }
