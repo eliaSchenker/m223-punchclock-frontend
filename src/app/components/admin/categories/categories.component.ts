@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SaveType } from 'src/app/api_config';
 import { Category } from 'src/app/model/Category';
 import { CategoryService } from 'src/app/services/category.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
@@ -33,7 +34,7 @@ export class CategoriesComponent implements OnInit {
 
   addCategory() {
     const dialogRef = this.dialog.open(CreateUpdateCategoryDialogComponent)
-    dialogRef.componentInstance.action = "New";
+    dialogRef.componentInstance.action = SaveType.Add;
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
@@ -48,7 +49,7 @@ export class CategoriesComponent implements OnInit {
 
   updateCategory(category: Category) {
     const dialogRef = this.dialog.open(CreateUpdateCategoryDialogComponent)
-    dialogRef.componentInstance.action = "Edit";
+    dialogRef.componentInstance.action = SaveType.Edit;
     dialogRef.componentInstance.category = JSON.parse(JSON.stringify(category)); //Create a deep copy of the category (to avoid incorrect binding)
 
     dialogRef.afterClosed().subscribe(result => {

@@ -1,13 +1,14 @@
 <h1 mat-dialog-title>
-  {{action}} Location
+  {{action}} Category
 </h1>
 
 <div mat-dialog-content>
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>Name</mat-label>
-  <input matInput placeholder="Enter username..." value="" [(ngModel)]="category.name">
+  <input matInput placeholder="Enter category name..." value="" [(ngModel)]="category.name" autocomplete="off">
 </mat-form-field>
-
+<br>
+<mat-label id="error">{{ error }}</mat-label>
 </div>
 
 <div mat-dialog-actions>
