@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SaveType } from 'src/app/api_config';
 import { Entry } from 'src/app/model/Entry';
 import { EntryService } from 'src/app/services/entry.service';
 import { ConfirmDeleteDialogComponent } from '../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
@@ -32,7 +33,7 @@ export class EntryComponent implements OnInit {
 
   addEntry() {
     const dialogRef = this.dialog.open(CreateUpdateEntryDialogComponent)
-    dialogRef.componentInstance.action = "Add";
+    dialogRef.componentInstance.action = SaveType.Add;
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.entryService.addEntry(result).subscribe(() => {
@@ -47,7 +48,7 @@ export class EntryComponent implements OnInit {
   updateEntry(entry: Entry) {
     const dialogRef = this.dialog.open(CreateUpdateEntryDialogComponent)
     dialogRef.componentInstance.entry = JSON.parse(JSON.stringify(entry));
-    dialogRef.componentInstance.action = "Edit";
+    dialogRef.componentInstance.action = SaveType.Edit;
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.entryService.updateEntry(result).subscribe(() => {
