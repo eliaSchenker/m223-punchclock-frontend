@@ -8,9 +8,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ConfirmDeleteDialogComponent implements OnInit {
   title: string;
+  text: string;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>) {
     this.title = "";
+    this.text = "";
   }
 
   ngOnInit(): void {
