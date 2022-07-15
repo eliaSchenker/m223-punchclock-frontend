@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SaveType } from 'src/app/api_config';
 import { Location } from 'src/app/model/Location';
 import { LocationService } from 'src/app/services/location.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
@@ -32,7 +33,7 @@ export class LocationsComponent implements OnInit {
 
   addLocation() {
     const dialogRef = this.dialog.open(CreateUpdateLocationDialogComponent)
-    dialogRef.componentInstance.action = "Add";
+    dialogRef.componentInstance.action = SaveType.Add;
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.locationService.addLocation(result).subscribe(() => {
@@ -46,7 +47,7 @@ export class LocationsComponent implements OnInit {
 
   updateLocation(location: Location) {
     const dialogRef = this.dialog.open(CreateUpdateLocationDialogComponent)
-    dialogRef.componentInstance.action = "Edit";
+    dialogRef.componentInstance.action = SaveType.Edit;
     dialogRef.componentInstance.location = JSON.parse(JSON.stringify(location));
 
     dialogRef.afterClosed().subscribe(result => {

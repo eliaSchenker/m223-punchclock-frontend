@@ -5,9 +5,10 @@
 <div mat-dialog-content>
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>Name</mat-label>
-  <input matInput placeholder="Enter username..." value="" [(ngModel)]="location.name">
+  <input matInput placeholder="Enter location name..." value="" [(ngModel)]="location.name" autocomplete="off">
 </mat-form-field>
-
+<br>
+<mat-label id="error">{{ error }}</mat-label>
 </div>
 
 <div mat-dialog-actions>
