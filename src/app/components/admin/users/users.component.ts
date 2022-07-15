@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SaveType } from 'src/app/api_config';
 import { User } from 'src/app/model/User';
 import { UserService } from 'src/app/services/user.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
@@ -32,7 +33,7 @@ export class UsersComponent implements OnInit {
 
   addUser() {
     const dialogRef = this.dialog.open(CreateUpdateUserDialogComponent)
-    dialogRef.componentInstance.action = "Add";
+    dialogRef.componentInstance.action = SaveType.Add;
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.userService.addUser(result).subscribe(() => {
@@ -46,7 +47,7 @@ export class UsersComponent implements OnInit {
 
   updateUser(user: User) {
     const dialogRef = this.dialog.open(CreateUpdateUserDialogComponent)
-    dialogRef.componentInstance.action = "Edit";
+    dialogRef.componentInstance.action = SaveType.Edit;
     dialogRef.componentInstance.user = JSON.parse(JSON.stringify(user));
 
     dialogRef.afterClosed().subscribe(result => {

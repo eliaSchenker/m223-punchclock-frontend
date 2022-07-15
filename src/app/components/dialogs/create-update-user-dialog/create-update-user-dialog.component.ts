@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { SaveType } from 'src/app/api_config';
 import { Location } from 'src/app/model/Location';
 import { User } from 'src/app/model/User';
 import { LocationService } from 'src/app/services/location.service';
@@ -11,16 +12,16 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class CreateUpdateUserDialogComponent implements OnInit {
   user: User;
-  action: string;
+  action: SaveType;
+  error: string;
   locations: Location[];
-  selected_location_id: number;
 
   constructor(public dialogRef: MatDialogRef<CreateUpdateUserDialogComponent>,
     private locationService: LocationService) {
     this.user = {id: undefined, username: "", password: "", role: "User", location: {id: undefined, name:""}};
-    this.action = "Add";
+    this.error = "";
+    this.action = SaveType.Add;
     this.locations = [];
-    this.selected_location_id = 1;
   }
 
   ngOnInit(): void {
@@ -33,7 +34,18 @@ export class CreateUpdateUserDialogComponent implements OnInit {
   }
 
   onConfirm(): void {
-    this.dialogRef.close(this.user);
+    if(this.user.username == "") {
+      this.error = "Username cannot be empty";
+    }else if(this.action == SaveType.Add && this.user.password == "") {
+      //If the Admin is creating a new user the password cannot be blank
+      this.error = "Password cannot be empty"
+    }else if(this.user.role == "") {
+      this.error = "Role cannot be empty";
+    }else if(this.user.location.id == undefined) {
+      this.error = "Location cannot be empty";
+    }else {
+      this.dialogRef.close(this.user);
+    }
   }
 
   onDismiss(): void {
