@@ -1,13 +1,27 @@
 <h1 mat-dialog-title>
-  {{action}} Location
+  {{action}} Entry
 </h1>
 
 <div mat-dialog-content>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Name</mat-label>
-  <input matInput placeholder="Enter username..." value="" [(ngModel)]="location.name">
-</mat-form-field>
+  <!-- Checkin -->
+  <mat-form-field>
+    <mat-label>Checkin</mat-label>
+    <input matInput type="datetime-local" placeholder="start date" [(ngModel)]="entry.checkIn">
+</mat-form-field><br>
 
+<mat-form-field>
+  <mat-label>Checkout</mat-label>
+  <input matInput type="datetime-local" placeholder="start date" [(ngModel)]="entry.checkOut">
+</mat-form-field><br>
+
+<mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select matInput [(ngModel)]="entry.category">
+    <mat-option *ngFor="let category of categories" [value]="category">
+      {{category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 </div>
 
 <div mat-dialog-actions>
