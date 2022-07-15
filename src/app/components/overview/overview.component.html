@@ -1,4 +1,4 @@
-<div *ngIf="user != undefined" id="overviewDiv">
+<div *ngIf="user != undefined && user.username != ''" id="overviewDiv">
   <h1>Welcome, {{user.username}}!</h1>
   <div>
     <button mat-raised-button color="primary" (click)="navigateEntries()">Manage entries</button>

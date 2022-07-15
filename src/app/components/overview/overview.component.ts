@@ -14,7 +14,7 @@ export class OverviewComponent implements OnInit {
   user?:User;
 
   constructor(private userService: UserService, private router: Router, private authService: AuthService) {
-    this.user = {role: "", username:"", id: 1}
+    this.user = {role: "", username:"", id: 1, location: {id: undefined, name: ""}}
   }
 
   ngOnInit(): void {
