@@ -7,6 +7,11 @@ import { UserService } from 'src/app/services/user.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
 import { CreateUpdateUserDialogComponent } from '../../dialogs/create-update-user-dialog/create-update-user-dialog.component';
 
+/**
+ * Displays all users in a table and allows the administrator to manage those users
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',

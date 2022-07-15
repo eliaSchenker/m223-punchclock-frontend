@@ -7,10 +7,20 @@ import { Entry } from '../model/Entry';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Service to manage entries
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 export class EntryService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Returns all entries
+   * @returns Request Observable (entry array)
+  */
   getEntries(): Observable<Entry[]> {
     return this.http.get<Entry[]>(API_URL + "entries", httpOptions);
   }

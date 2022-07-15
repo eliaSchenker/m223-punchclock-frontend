@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'admin/categories', component: CategoriesComponent},
   {path: 'admin/locations', component: LocationsComponent},
   {path: 'admin/users', component: UsersComponent},
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: ''} //If an unknown page is opened, redirect to the index page
 ];
 
 @NgModule({

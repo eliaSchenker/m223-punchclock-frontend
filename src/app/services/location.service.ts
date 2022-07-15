@@ -5,6 +5,11 @@ import { API_URL, httpOptions } from '../api_config';
 import { Category } from '../model/Category';
 import { Location } from '../model/Location';
 
+/**
+ * Service to manage locations
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +30,6 @@ export class LocationService {
   }
 
   deleteLocation(id: number): Observable<Object> {
-    return this.http.delete(API_URL + "locations" + id, httpOptions);
+    return this.http.delete(API_URL + "locations/" + id, httpOptions);
   }
 }

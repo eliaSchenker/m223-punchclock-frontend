@@ -7,6 +7,11 @@ import { LocationService } from 'src/app/services/location.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
 import { CreateUpdateLocationDialogComponent } from '../../dialogs/create-update-location-dialog/create-update-location-dialog.component';
 
+/**
+ * Displays all locations in a table and allows the administrator to manage those locations
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',

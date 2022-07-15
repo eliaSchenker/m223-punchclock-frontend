@@ -7,6 +7,11 @@ import { CategoryService } from 'src/app/services/category.service';
 import { ConfirmDeleteDialogComponent } from '../../dialogs/confirm-delete-dialog/confirm-delete-dialog.component';
 import { CreateUpdateCategoryDialogComponent } from '../../dialogs/create-update-category-dialog/create-update-category-dialog.component';
 
+/**
+ * Displays all categories in a table and allows the administrator to manage those categories
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',

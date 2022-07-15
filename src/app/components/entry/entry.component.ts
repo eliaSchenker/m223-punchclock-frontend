@@ -12,6 +12,12 @@ import { CreateUpdateEntryDialogComponent } from '../dialogs/create-update-entry
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css']
 })
+
+/**
+ * Displays the entries in a table and allows the user to manage those entries
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 export class EntryComponent implements OnInit {
   entries: Entry[];
   displayedColumns: string[] = ['id', 'checkIn', 'checkOut', 'category', 'update', 'delete'];

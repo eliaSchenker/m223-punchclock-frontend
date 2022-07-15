@@ -4,6 +4,11 @@ import { Observable } from 'rxjs';
 import { API_URL, httpOptions } from '../api_config';
 import { User } from '../model/User';
 
+/**
+ * Service to manage users
+ * Author: Elia Schenker
+ * Last change: 15.07.2022
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +25,7 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(API_URL + "auth/register", user, httpOptions);
+    return this.http.post<User>(API_URL + "users", user, httpOptions);
   }
 
   updateUser(user: User): Observable<User> {
